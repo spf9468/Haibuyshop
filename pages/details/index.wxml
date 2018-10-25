@@ -1,0 +1,23 @@
+<view class="container">
+    
+    <view>
+        <swiper class="swiper_box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
+                autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+            <!-- <block wx:for="{{goodsinfo}}" wx:key="item"> -->
+                <swiper-item>
+                    <image src="{{goodsinfo.img}}" class="slide-image"/>
+                </swiper-item>
+            <!-- </block> -->
+        </swiper>
+    </view>
+
+    <view class="shopping_container">
+        <view class="title">{{goodsinfo.title}}</view>
+        <view class="reason">{{goodsinfo.price}}</view>
+    </view>
+
+    <view>
+        <view></view>
+    </view>
+
+</view>

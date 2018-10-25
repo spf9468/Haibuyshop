@@ -1,0 +1,36 @@
+<view class="cart-box">
+  <view class="item" wx:for="{{list}}" wx:key="list">
+    <icon type="{{item.select}}" size="26" data-index="{{index}}" data-select="{{item.select}}" bindtap="change" />
+    <image src="{{item.goods_img}}" class="goods-img" mode="widthFix"></image>
+    <view class="goods-info">
+      <view class="row">
+        <view class="attr_color">商品名称： {{item.goods_name}}</view>
+      </view>
+      <view class="attr_color">颜色：{{item.attr_value}}</view>
+      <text class="attr_price">小计：￥{{item.cart_sum}}</text>
+      <view class="num-box">
+        <view class="btn-groups">
+          <button class="goods-btn btn-minus" data-index="{{index}}" data-num="{{item.goods_number}}" bindtap="subtraction">—</button>
+          <view class="num">{{item.goods_number}}</view>
+          <button class="goods-btn btn-add" data-index="{{index}}" data-num="{{item.goods_number}}" bindtap="addtion">+</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="cart-fixbar">
+  <view class="allSelect">
+    <icon type="{{allSelect}}" size="26" data-select="{{allSelect}}" bindtap="allSelect" />
+    <view class="allSelect-text">全选</view>
+  </view>
+  <view class="count">
+    合计：
+    <text class='fuhao'>￥{{count}}</text>
+  </view>
+  <view class="order">
+    <view class="allum" bindtap="go_pay">去结算({{num}})</view>
+    <!-- <button class="allum" bindtap="go_pay">去结算({{num}})</button> -->
+  </view>
+</view>

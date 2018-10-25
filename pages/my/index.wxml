@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <view class='headView'>
+    <open-data class='icon' mode='aspectFit' type='userAvatarUrl'></open-data>
+    <view class='icon'/>
+</view>
+      <open-data type="userNickName" class='user_name'></open-data>
+  </view>
+  <view class="info_list">
+    <block wx:for="{{userListInfo}}" wx:key="item">
+        <view class="weui_cell">
+            <view class="weui_cell_hd"><image src="{{item.icon}}"></image></view>
+            <view class="weui_cell_bd">
+  <navigator class="weui_cell_bd_p" url='{{item.url}}' bindtap="modal" data-id='{{item.id}}'>{{item.text}}
+                </navigator>
+            </view>
+            <view wx:if="{{item.isunread}}" class="badge">{{item.unreadNum}}</view>
+            <view class="with_arrow"></view>
+        </view>
+    </block>
+  </view>
+</view>

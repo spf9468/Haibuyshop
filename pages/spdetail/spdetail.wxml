@@ -1,0 +1,80 @@
+<view>
+  <swiper indicator-dots="{{indicatorDots}}" 
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+     <!-- <block wx:for="{{goodsinfo.goods_info}}">  -->
+      <swiper-item>
+        <image src="{{goodsinfo.goods_info.goods_pic}}" class="slide-image" />
+      </swiper-item>
+     <!-- </block>  -->
+  </swiper>
+</view>
+<view class="goods_infor_top">
+  <view class="goods_title">
+    {{goodsinfo.goods_info.goods_name}}
+  </view>
+  <view class="goods_price">
+    <text>￥{{goodsinfo.goods_info.goods_price}}</text>
+    <!-- <text class="goods_old_price">¥269</text> -->
+  </view>
+  <view class="goods_deliver">
+    *本产品由 品牌商 提供发货服务。
+  </view>
+  <view bindtap='showModal' class='attr_attr'  >　选择属性</view>
+  <!--屏幕背景变暗的背景  -->
+  <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <!--弹出框  -->
+  <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+  <!-- 循环展示属性 -->
+  <div>
+
+  <view class='box-1'>　颜色: </view>
+      <view><image class='bt-55' src='{{goodsinfo.goods_info.goods_pic}}'></image></view>
+  <view class='box-2'>已选择:{{attr_name}}</view>
+    <view class="price_attr">
+    <text>￥{{goodsinfo.goods_info.goods_price}}</text>
+    <!-- <text class="goods_old_price">¥269</text> -->
+  </view></div> 
+
+  
+  <radio-group class="radio-group" bindchange="radioChange">
+   
+  <block  wx:for="{{goodsinfo.goods_sku}}"> 
+      <radio color='red' class='attr-ss' bindtap='changAttrid' data-id='{{item.attr_id}}' value="{{item.attr_price}}" data-name="{{item.attr_value}}" checked="{{item.checked}}"/><span class='attr-ss'> {{item.attr_value}}</span>
+ </block>
+  </radio-group>
+  <!-- 主容器 -->
+<view class='bt-4'>购买数量:</view>
+<view class="stepper"> 
+
+  <!-- 减号 -->
+  <text class="{{minusStatus}}" bindtap="bindMinus">-</text> 
+  <!-- 数值 -->
+  <input type="number" bindchange="bindManual" value="{{num}}" /> 
+  <!-- 加号 -->
+  <text class="normal" bindtap="bindPlus">+</text> 
+</view>
+  </view>
+
+
+     <view class='list_kg'></view>
+      <view class="goods_deliver">内容详情</view>
+    <view class="goods_infor_brand"></view>
+    <image class='goods_imga' wx:for="{{goods_image}}" src='{{item.goods_img}}'></image>
+
+
+
+</view>
+
+
+
+<!-- <view class="goods_detail">
+  <view class="goods_detail_title">商品详情</view>
+  <view>
+    <image bindload="cusImageLoad" src="../../images/IMG_0466.jpg" style="width:{{imageWidth}};height:{{imageHeight}}"></image>
+  </view>
+</view> -->
+<view class="goods_bottom"></view>
+<view class="goods_bottom_btn">
+ 
+     <view class="goods_half_half blue" data-attr-id="{{attr_id}}" data-id="{{goods_id}}" data-attr-num="{{num}}" bindtap="addcar">加入购物车</view>
+</view>

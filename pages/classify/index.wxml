@@ -1,0 +1,45 @@
+<view class="container">
+  <view class="nav_left">
+    <block wx:for="{{navLeftItems}}">
+      <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">{{item.tree.desc}}</view>
+    </block>
+    <!-- 循环父级分类 -->
+    <block wx:for="{{data}}">
+      <!--当前项的id等于item项的id，那个就是当前状态-->
+      <!--用data-index记录这个数据在数组的下标位置，使用data-id设置每个item的id值，供打开2级页面使用-->
+      <view class="nav_left_items {{curNav == item.cat_id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.cat_id}}">{{item.cat_name}}</view>
+    </block>
+  </view>
+  <view class="nav_right">
+    <view wx:if="{{navRightItems[curIndex].tree.nodes[1].tree.nodes}}">
+      <block wx:for="{{navRightItems[curIndex].tree.nodes[1].tree.nodes}}">
+        <view class="nav_right_items">
+          <navigator url="../list/index?brand={{item.tree.id}}&typeid={{navRightItems[curIndex].id}}">
+            <view>
+              <block wx:if="{{item.tree.logo}}">
+                <image src="{{item.tree.logo}}"></image>
+              </block>
+              <block wx:else>
+                <image src="http://temp.im/50x30"></image>
+              </block>
+            </view>
+            <view wx:if="{{item.tree.desc}}">
+              <text>{{item.tree.desc}}</text>
+            </view>
+            <view wx:else>
+              <text>{{item.tree.desc2}}</text>
+            </view>
+          </navigator>
+        </view>
+      </block>
+    </view>
+    <block wx:for="{{data[curIndex].children}}">
+      <view class="nav_right_items">
+        <!--界面跳转 -->
+        <image bindtap="goods_desc" data-id="{{item.cat_id}}" src="{{item.cat_img}}"></image>
+        <text>{{item.cat_name}}</text>
+
+      </view>
+    </block>
+  </view>
+</view>

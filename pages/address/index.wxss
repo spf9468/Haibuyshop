@@ -1,0 +1,89 @@
+page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #f5f5f5;
+}
+
+.aaa {
+  float: right;
+  font-size: 12px;
+  background: red;
+  border-radius: 10px;
+  margin-left: 10px;
+  color: #fff;
+}
+
+.aa {
+  color: red;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.bb {
+  height: 1.7rem;
+  line-height: 1.7rem;
+  background: white;
+  bottom: 0.5rem;
+  color: red;
+  text-align: center;
+  border-radius: 0.2rem;
+  font-size: 0.75rem;
+}
+
+.product-name-wrap {
+  margin-left: 20px;
+  width:600rpx;
+  height: 100px;
+  font-size: 14px;
+  color: #404040;
+
+}
+
+.ui-list-item-address {
+  color: #585c64;
+}
+
+.save {
+  float: right;
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.ui-list-item-del {
+  float: right;
+  margin-left: 10px;
+  color: #585c64;
+}
+
+.mo {
+  color: red;
+}
+
+/* 分割线 */
+
+.separate {
+  margin: 5px 0px;
+  height: 1rpx;
+  background-color: #f2f2f2;
+}
+
+.add-address {
+  margin-top: 30px;
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+}
+
+.add-img {
+  margin-right: 15rpx;
+  width: 15px;
+  height: 15px;
+}
+
+
+

@@ -1,0 +1,37 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <scroll-view class="scroll" scroll-y="true">
+    <radio-group class="radio-group" bindchange="radioChange">
+      <view wx:for='{{datalist}}' class='address_list'>
+        <radio value='{{item.address_id}}'>
+          <view class="product-name-wrap">
+            <view class="ui-list-item-address" else="{{item.add_address}}">
+              <text>详细地址：</text> {{item.add_address}}
+              <view>
+                <navigator class="save" url="../save/index?id={{item.address_id}}">修改</navigator>
+              </view>
+              <view>
+                <text class="ui-list-item-del" data-id="{{item.address_id}}" bindtap="delAddress">删除</text>
+              </view>
+            </view>
+            <view class="ui-list-item-address">
+              <text>电话：</text> {{item.user_phone}}
+            </view>
+            <view class="ui-list-item-time">
+              <p>收货人姓名：{{item.user_name}}</p>
+              <button bindtap='sets' class='aaa' data-id='{{item.address_id}}'>设置默认地址</button>
+            </view>
+            <view wx:if='{{item.is_default == 0}}' class='mo'>默认地址</view>
+          </view>
+        </radio>
+      </view>
+    </radio-group>
+  </scroll-view>
+</form>
+<view class="add-address" bindtap="addAddress">
+  <view wx:if='{{cart_id}}'>
+    <button class="bb" bindtap="add_order">提交订单</button>
+  </view>
+  <navigator url='../add/index'>
+    <button class="aa">新增地址</button>
+  </navigator>
+</view>
